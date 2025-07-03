@@ -538,14 +538,13 @@ var save_data = {
         // Fetching User ID from the URL
         const userId = await parseIdfromReferrer(document.referrer)
         const apiResult = await fetch(
-          "https://9d9tq22ivg.execute-api.us-east-1.amazonaws.com/default/socialrl-aws-session-bipolar",
+          "save-data",
           {
             method: "POST",
             headers: {
               Accept: "application/json",
               "Content-Type": "application/json",
             },
-            mode: "no-cors",
             body: JSON.stringify({
               results,
               score,

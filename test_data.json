@@ -1,0 +1,30 @@
+{
+  "results": [
+    {
+      "trial_type": "html-button-response",
+      "trial_index": 0,
+      "time_elapsed": 1234,
+      "response": 0,
+      "rt": 856,
+      "stimulus": "test stimulus",
+      "button_pressed": 0,
+      "task": "rl-select",
+      "rewarded": true
+    },
+    {
+      "trial_type": "html-slider-response", 
+      "trial_index": 1,
+      "time_elapsed": 2345,
+      "response": 75,
+      "rt": 1245,
+      "stimulus": "How are you feeling?",
+      "task": "affective_ratings",
+      "question": "Sad-Happy"
+    }
+  ],
+  "score": 0,
+  "outcomes": {},
+  "userId": "test_user_123",
+  "sessionId": 1,
+  "totalDuration": 120
+}
