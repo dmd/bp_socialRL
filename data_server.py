@@ -13,7 +13,7 @@ DATA_DIR = 'data'
 if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
 
-@app.route('/save-data', methods=['POST'])
+@app.route('/', methods=['POST'])
 def save_data():
     try:
         # Get the JSON data from the request
