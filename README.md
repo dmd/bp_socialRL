@@ -67,23 +67,13 @@ The `post_survey` variable creates a timeline of visual analog scale type respon
 
 `/* data push to server */`
 
-The `save_data` variable creates a function call that **integrates with Test My Brain**. 
-
-The key function is `tmbSubmitToServer()`. This function is created by Test My Brain's JavaScript library. This library is loaded in the `.html` files:
-
-```html
-<script type="text/javascript" src="TestMyBrain.12.18.min.js"></script>
-```
-
-The script itself is not in the code repository, as the TMB folks can add it to the project when it is uploaded to their server.
+The `save_data` variable creates a function call that saves data to the local Flask server.
 
 The function accepts three kinds of data: `results`, `score`, and `outcomes`.
 
-* `results` is an **array** containing all of the data for the experiment. This array is converted to JSON by the TMB server, and stored as a single JSON string. There is a maximum character length of the string (about 65,000 characters). Thus it may be necessary to not save irrelevant columns of data, like `internal_node_id`. This can be done with `.ignore()`, as shown on line 427.
+* `results` is an **array** containing all of the data for the experiment. This array is converted to JSON and sent to the server.
 * `score` is a **number**, representing an overall score for the session. Not used here.
 * `outcomes` is an **object** of outcome measures. Not used here.
-
-To integrate other jsPsych experiments with TMB, the same `save_data` variable could be copied into the experiment. You may need to modify the `ignore()` portions of the code to remove/keep relevant/irrelevant variables. Otherwise the same exact code should work.
 
 `/* build the the experiment timeline */`
 

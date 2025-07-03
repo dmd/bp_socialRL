@@ -603,7 +603,6 @@ var save_data = {
 //}
 //);
 //console.log("API Result::", apiResult);
-//tmbSubmitToServer(results,score,outcomes);
 
 //jsPsych.data.get().ignore("internal_node_id").ignore("key_press").localSave('csv', 'sample-social-rl-data.csv')
 //},
