@@ -92,6 +92,10 @@
 
 // All the above code is moved to day1.config.js file
 
+// Check for test mode URL parameter
+const urlParams = new URLSearchParams(window.location.search);
+const isTestMode = urlParams.get('test') === 'true';
+
 var timeline = [];
 
 /* define instructions */
@@ -336,7 +340,7 @@ var practice_block = {
       sample: {
         type: "custom",
         fn: function () {
-          var total_trials = 10;
+          var total_trials = isTestMode ? 2 : 10;
           var p_reward_0 = 0.5;
           var sample = jsPsych.randomization.shuffle(
             Array(total_trials)
@@ -389,6 +393,9 @@ var block_1 = {
   sample: {
     type: "custom",
     fn: function () {
+      if (isTestMode) {
+        return [0, 1]; // Just 2 trials for testing
+      }
       return [
         0, 0, 0, 2, 3, 0, 3, 3, 0, 1, 0, 0, 3, 0, 3, 1, 1, 0, 0, 0, 2, 2, 1, 2,
         2, 1, 3, 2, 2, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 0, 2, 3, 0, 1, 0, 0, 1, 2,
