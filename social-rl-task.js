@@ -361,9 +361,18 @@ var practice_block = {
         },
       ],
       conditional_function: function () {
-        var slow_trials = jsPsych.data
+        if (isTestMode) {
+          return false; // Skip practice repeat in test mode
+        }
+        var practice_data = jsPsych.data
           .get()
-          .filter({ block: "practice", task: "rl-select" })
+          .filter({ block: "practice", task: "rl-select" });
+        
+        if (practice_data.count() === 0) {
+          return false; // No practice data yet
+        }
+        
+        var slow_trials = practice_data
           .last(10)
           .filter({ rewarded: null })
           .count();
@@ -372,9 +381,18 @@ var practice_block = {
     },
   ],
   loop_function: function () {
-    var slow_trials = jsPsych.data
+    if (isTestMode) {
+      return false; // Don't repeat practice in test mode
+    }
+    var practice_data = jsPsych.data
       .get()
-      .filter({ block: "practice", task: "rl-select" })
+      .filter({ block: "practice", task: "rl-select" });
+    
+    if (practice_data.count() === 0) {
+      return false; // No practice data yet
+    }
+    
+    var slow_trials = practice_data
       .last(10)
       .filter({ rewarded: null })
       .count();
